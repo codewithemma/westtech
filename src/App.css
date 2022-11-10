@@ -1,0 +1,9 @@
+body {
+  background-color: #ebfcf4;
+}
+.bg-green {
+  background-color: #07b464 !important;
+}
+.rounded-start-card {
+  border-radius: 35px 0 0 35px;
+}
