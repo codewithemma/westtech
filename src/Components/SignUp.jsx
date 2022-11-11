@@ -23,6 +23,7 @@ const SignUp = () => {
     setUserData({ ...userData, [name]: type === "checkbox" ? checked : value });
     console.log(userData);
   };
+  const [show, setShow] = useState(true);
   return (
     <Container fluid>
       <Row>
@@ -30,7 +31,7 @@ const SignUp = () => {
         <Col lg="6">
           <Card style={{}} className="rounded-start-card">
             <Card.Body>
-              <div className="my-4">d</div>
+              <div className="my-2">d</div>
               <div className="mb-5">d</div>
               <div className="mt-5">
                 <h2 className="text-center fw-bold mb-3">
@@ -53,7 +54,7 @@ const SignUp = () => {
                     <InputGroup className="mb-3">
                       <InputGroup.Text id="password">
                         <FaAt />
-                      </InputGroup.Text>{" "}
+                      </InputGroup.Text>
                       <Form.Control
                         type="email"
                         name="email"
@@ -68,16 +69,23 @@ const SignUp = () => {
                       </InputGroup.Text>
                       <Form.Control
                         name="password"
-                        type="password"
-                        placeholder="Password"
+                        placeholder="password"
+                        type={show ? "password" : "text"}
                         value={userData.password}
                         onChange={handleChange}
                       ></Form.Control>
                     </InputGroup>
                     <Form.Check
+                      type="switch"
+                      id="switch"
+                      label="Show Password"
+                      onClick={() => {
+                        setShow((prev) => !prev);
+                      }}
+                    />
+                    <Form.Check
                       className="mb-4"
                       type="checkbox"
-                      label="I agree with Terms and Privacy"
                       onChange={handleChange}
                     ></Form.Check>
                     <div>
